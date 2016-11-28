@@ -1,0 +1,276 @@
+<!-- Some divs to wrap the model iframes and two buttons -->
+<body>
+
+ <audio autoplay>
+  <source src="https://dl.dropboxusercontent.com/u/3583308/HLPvisualize/16080307.mp3" type="audio/mpeg">
+</audio> 
+
+<a href="http://www.hlpklearfold.co.uk/"target="_blank">
+<img src="https://dl.dropboxusercontent.com/u/3583308/HLPvisualize/HLP_Weblogo.png" style="height: auto; min-height: 60px; min-width: 240px; width: 16%; margin-left:5%">
+</a>
+
+
+<hr size=2 width=90% noshade>
+
+    <div class="wrapper">
+        <iframe src="https://dl.dropboxusercontent.com/u/3583308/HLPvisualize/hlp_wel.png" id="api-frame" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" width="90%" align="middle" height="80%"  ></iframe>
+        <div class="buttons">
+            <button id="blueButton">1860</button>
+            <button id="orangeButton">1845</button>
+            <button id="redButton">1850</button>
+            <button id="greenButton">1851</button>
+        </div>
+    </div>
+    <!-- The API -->
+    <script src="https://d2f25wgezub9nf.cloudfront.net/api/sketchfab-viewer-1.0.0.js"></script>
+
+    <!-- Your new script -->
+    
+     <script>
+        // Three models
+        var blueModel = 'b77ff666d1d74fc1ab5e847b86311aec',
+            orangeModel = '03d1bb014d6f4539ba7990885300b31d',
+            redModel = 'aa04206a8875451fad96030358535dc3',
+            greenModel = 'aa04206a8875451fad96030358535dc3',
+
+            // Three buttons
+            blueButton = document.getElementById( 'blueButton' ),
+            orangeButton = document.getElementById( 'orangeButton' ),
+            redButton = document.getElementById( 'redButton' ),
+            redButton = document.getElementById( 'greenButton' ),
+            
+            // API version
+            version = '1.0.0',
+            
+            // The iframe
+            iframe = document.getElementById( 'api-frame' ),
+            
+            // The API client object
+            client = new Sketchfab( version, iframe ),
+            
+            // Defining error and success outside initialization, for easy reading
+            error = function () {
+                console.error( 'Sketchfab API Error!' );
+            },
+            
+            // If initilization succeeds, start the model immediately
+            success = function( api ) {
+                api.start();
+				api.pause();
+            };
+
+        // A function to load a model
+        function loadModel( client, urlid ) {
+            console.log( 'loading a model' );
+            client.init( urlid, {
+                success: success,
+                error: error,
+                autospin: 1,
+                ui_stop: 0,
+                transparent: 1,
+				preload:1,
+            });
+        }
+
+        // Listen for click events on the buttons
+        blueButton.addEventListener( 'click', function() {
+            loadModel( client, blueModel );			
+        });
+
+        orangeButton.addEventListener( 'click', function() {
+            loadModel( client, orangeModel );
+			//api.play();
+        });
+
+        redButton.addEventListener( 'click', function() {
+            loadModel( client, redModel );	          			
+			//api.pause();
+        });
+
+        greenButton.addEventListener( 'click', function() {
+            loadModel( client, greenModel );	          			
+			//api.pause();
+        });
+
+    </script>
+
+    <hr class="side" size=2 width=90% noshade >	  
+   	
+<br>
+
+ <div class="footer">
+ 
+ <p>HLP Klearfold&#169; Visualize.</p> 
+ 
+<a href="https://www.facebook.com/HLP-Klearfold-151224155026654/" style="text-decoration:none" target="_blank">
+<img src="https://dl.dropboxusercontent.com/u/3583308/HLPvisualize/fb_hlp.png" style=" height: 40px; min-height: 40px; min-width: 40px; width: 40px; margin-left:10px; margin-top:-5px">
+</a>
+
+<a href="https://twitter.com/thehlpklearfold" style="text-decoration:none" target="_blank">
+<img src="https://dl.dropboxusercontent.com/u/3583308/HLPvisualize/twet_hlp.png" style=" height: 40px; min-height: 40px; min-width: 40px; width: 40px; margin-left:10px; margin-top:-5px">
+</a>
+
+<a href="https://www.linkedin.com/company/hlp-klearfold" style="text-decoration:none" target="_blank">
+<img src="https://dl.dropboxusercontent.com/u/3583308/HLPvisualize/lin_hlp.png" style=" height: 40px; min-height: 40px; min-width: 40px; width: 40px; margin-left:10px; margin-top:-5px">
+</a>
+
+<a href="https://www.youtube.com/channel/UCaFvBxxNIUEbVO2naFsitdw" style="text-decoration:none" target="_blank">
+<img src="https://dl.dropboxusercontent.com/u/3583308/HLPvisualize/yt_hlp.png" style=" height: 40px; min-height: 40px; min-width: 40px; width: 40px; margin-left:10px; margin-top:-5px">
+</a>
+
+<a href="mailto:sales@hlpklearfold.co.uk?Subject=HLP%20Klearfold%20Visualize" style="text-decoration:none" target="_blank">
+<img src="https://dl.dropboxusercontent.com/u/3583308/HLPvisualize/eml_hlp.png" style=" height: 40px; min-height: 40px; min-width: 40px; width: 40px; margin-left:10px; margin-top:-5px">
+</a>
+     </div>
+
+    <!-- Lastly, some CSS -->
+    <style type="text/css">
+
+        /* Max width of the iframe */
+        .wrapper {
+            width:100%;
+			height: 80%; 
+			min-height:680px; 
+			display: block;
+            margin: auto;
+		      			
+        }
+
+        /* Button style */
+        .buttons {
+            margin-top: 10px;
+        }
+		
+         .side{
+            margin-top:-60px;
+            
+		}
+ 
+        body {
+            background: rgba(227,227,227,1);
+            background: -moz-linear-gradient(top, rgba(227,227,227,1) 0%, rgba(255,255,255,1) 100%);
+            background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(227,227,227,1)), color-stop(100%, rgba(255,255,255,1)));
+            background: -webkit-linear-gradient(top, rgba(227,227,227,1) 0%, rgba(255,255,255,1) 100%);
+            background: -o-linear-gradient(top, rgba(227,227,227,1) 0%, rgba(255,255,255,1) 100%);
+            background: -ms-linear-gradient(top, rgba(227,227,227,1) 0%, rgba(255,255,255,1) 100%);
+            background: linear-gradient(to bottom, rgba(227,227,227,1) 0%, rgba(255,255,255,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e3e3e3', endColorstr='#ffffff', GradientType=0 );
+			background-repeat:no-repeat;
+        }
+ 
+        .footer {
+            width: 100%;
+            height: 100px; 
+            text-transform: uppercase;
+            background-color: #bdbdbd;        
+            color: #505050;
+            border: none;
+            border-radius: 5px;
+			font-size: small;
+            text-align: center;
+            vertical-align: middle;
+            float: center;
+			margin-bottom: -100px;
+            margin-right: 5px;
+            padding-top:5px;
+			font-family: Arial, Helvetica, sans-serif;
+        }
+
+
+        div {
+            width: 100%;
+            height: 20%;
+			min-height:70px; 
+            text-transform: uppercase;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            vertical-align: middle;
+            float: center;
+            margin-right: 5px;
+			
+        }
+		
+         p {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+
+        button {
+            width: 65px;
+            height: 65px;
+            line-height: 21px;
+            text-transform: uppercase;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            vertical-align: middle;
+            font-size:15px;
+            float: center;
+            margin-top: 0px;
+            margin-bottem: -10px;
+            margin-right: 20px;				
+			border:10px solid red;
+            overflow:hidden;
+			border-radius: 50%;
+			box-shadow: 0 0 0px grey;
+		}
+
+        #blueButton {
+            background: red;
+        }
+
+        #orangeButton {
+            background: red;
+        }
+
+        #redButton {
+            background: red;
+        }
+
+        #greenButton {
+            background: red;
+        }
+
+
+        #blueButton:hover {
+            background: black;
+            font size: 16px;
+			border:10px solid black;
+            overflow:hidden;
+			border-radius: 50%;
+			margin-top: -15px;
+		
+        }
+
+        #orangeButton:hover {
+            background: black;
+            font size: 16px;
+			border:10px solid black;
+            overflow:hidden;
+			border-radius: 50%;
+            margin-top: -15px;			
+        }
+
+        #redButton:hover {
+            background: black;
+            font size: 15px;
+			border:10px solid black;
+            overflow:hidden;
+			border-radius: 50%;	
+            margin-top: -10px;				
+        }
+
+        #greenButton:hover {
+            background: black;
+            font size: 15px;
+			border:10px solid black;
+            overflow:hidden;
+			border-radius: 50%;	
+            margin-top: -10px;				
+        }
+
+    </style>
+</body>
